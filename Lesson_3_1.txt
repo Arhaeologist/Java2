@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+
+
+public class HelloWorld
+{
+  public static void main(String[] args)
+  {
+    String[] text = {"a","b","c","b","a","e","a","e","e"};
+    ArrayList<MyText> disText = new ArrayList<MyText>();
+    boolean flag;
+    
+    for(int i = 0; i < text.length; i++)
+    {
+      	flag = false;
+    	for(int j = 0; j < disText.size(); j++)
+        {
+          if(text[i] == disText.get(j).getText())
+            {
+            	 flag = true;
+            	 disText.get(j).number++;
+            }
+        }
+    	if(flag == false)
+        {
+        	disText.add(new MyText(text[i]));
+        }
+    }
+    
+    for(int i = 0; i < disText.size(); i++)
+    {
+      System.out.println(disText.get(i).out());
+    }
+    
+  }
+}
+
+class MyText
+{
+  public String text;
+  public int number;
+  public MyText(String text)
+  {
+    this.text = text;
+    number = 1;
+  }
+  public String getText()
+  {
+ 	return text;
+  }
+  public String out()
+  {
+ 	return text+"="+number;
+  }
+}

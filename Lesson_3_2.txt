@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+
+
+public class HelloWorld
+{
+  public static void main(String[] args)
+  {
+    PhoneBook myPhoneBook = new PhoneBook();
+    myPhoneBook.add("a","1");
+    myPhoneBook.add("b","2");
+    myPhoneBook.add("a","3");
+    myPhoneBook.add("a","4");
+    myPhoneBook.add("d","5");
+    
+    myPhoneBook.get("a");
+  }
+}
+
+class PhoneNumber
+{
+  public String name;
+  public String number;
+  public PhoneNumber(String name, String number)
+  {
+    this.name = name;
+    this.number = number;
+  }
+  public String getName()
+  {
+ 	return name;
+  }
+  public String getNumber()
+  {
+ 	return number;
+  }
+  public String out()
+  {
+ 	return name+" - "+number;
+  }
+}
+
+class PhoneBook
+{
+  ArrayList<PhoneNumber> phoneBook;
+  public PhoneBook()
+  {
+    phoneBook = new ArrayList<PhoneNumber>();
+  }
+  public void add(String name, String number)
+  {
+ 	phoneBook.add(new PhoneNumber(name, number));
+  }
+  public void get(String name)
+  {
+ 	for(int i = 0; i < phoneBook.size(); i++)
+    {
+      if(phoneBook.get(i).getName() == name)
+      System.out.println(phoneBook.get(i).getNumber());
+    }
+  }
+}
